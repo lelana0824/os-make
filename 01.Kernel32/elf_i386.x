@@ -1,9 +1,10 @@
 /* Default linker script, for normal executables */
 OUTPUT_FORMAT("elf32-i386", "elf32-i386",
 	      "elf32-i386")
+OUTPUT_FORMAT("binary")
 OUTPUT_ARCH(i386)
-ENTRY(_start)
-SEARCH_DIR("/usr/cross/x86_64-pc-linux/lib");
+ENTRY(Main)
+SEARCH_DIR("/Users/lelana/.local/binutils/i386-unknown-linux-gnu/lib32"); SEARCH_DIR("/Users/lelana/.local/binutils/i386-unknown-linux-gnu/lib");
 SECTIONS
 {
   /* Read-only sections, merged into text segment: */
@@ -12,6 +13,7 @@ SECTIONS
 /*  섹션 재배치로 인해 앞으로 이동된 부분 */
   .text 0x10200          :
   {
+    Main.o(.text)
     *(.text .stub .text.* .gnu.linkonce.t.*)
     /* .gnu.warning sections are handled specially by elf32.em.  */
     *(.gnu.warning)
