@@ -10,6 +10,22 @@ START:
     mov ds, ax
     mov es, ax
 
+    ; A20 게이트를 활성화
+    ; BIOS로 전환 실패 시 시스템 컨트롤 포트로 전환 시도
+    mov ax, 0x2401
+    int 0x15
+
+    jc .A20GATEERROR
+    jmp .A20GATESUCCESS
+
+.A20GATEERROR:
+    ; 에러 발생 시 시스템 컨트롤 포트로 전환 시도
+    in al, 0x92
+    or al, 0x02
+    and al, 0xFE
+    out 0x92, al
+
+.A20GATESUCCESS:
     cli
     lgdt [ GDTR ]
 
@@ -38,7 +54,7 @@ PROTECTEDMODE:
     call PRINTMESSAGE
     add esp, 12
 
-    jmp $
+    jmp dword 0x08: 0x10200 ;
 
 ; 함수 코드 영역
 

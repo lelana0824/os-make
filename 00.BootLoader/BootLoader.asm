@@ -8,7 +8,7 @@ jmp 0x07C0:START
 ;;;;;;;;;;;;;;;;;;;;;;;
 ; OS에 관련된 환경 설정 값
 ;;;;;;;;;;;;;;;;;;;;;;;
-TOTALSECTORCOUNT:   dw  1
+TOTALSECTORCOUNT:   dw  0x02
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ; 코드 영역
