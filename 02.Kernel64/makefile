@@ -14,7 +14,7 @@ LD64 = ~/.local/binutils/bin/x86_64-unknown-linux-gnu-ld -T ../elf_x86_64.x -nos
 # 원본 LD64 = x86_64-pc-linux-ld.exe -melf_x86_64 -T ../elf_x86_64.x -nostdlib -e Main -Ttext 0x20000
 
 # 바이너리 이미지 생성을 위한 OBJCOPY 옵션 정의
-OBJCOPY64 = /Users/lelana/studyspace/os-make/binutils-2.27/build/binutils/objcopy -j .text -j .data -j .rodata -j .bss -S -O binary
+OBJCOPY64 = /Users/lelana/studyspace/os-make/binutils-2.27/build64/binutils/objcopy -j .text -j .data -j .rodata -j .bss -S -O binary
 
 # 디렉터리 정의
 OBJECTDIRECTORY = Temp
