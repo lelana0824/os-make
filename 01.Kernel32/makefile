@@ -8,7 +8,7 @@
 ################################################################################
 # 컴파일러 및 링커 정의
 NASM32 = nasm
-GCC32 = x86_64-elf-gcc -c -m32
+GCC32 = x86_64-elf-gcc -c -m32 -ffreestanding
 # 원본 GCC32 = x86_64-pc-linux-gcc.exe -c -m32 -ffreestanding 
 LD32 = ~/.local/binutils/bin/i386-unknown-linux-gnu-ld -T ../elf_i386.x -nostdlib -e Main -Ttext 0x10200
 # 원본 LD32 = x86_64-pc-linux-ld.exe -melf_i386 -T ../elf_i386.x -nostdlib -e Main -Ttext 0x10200
